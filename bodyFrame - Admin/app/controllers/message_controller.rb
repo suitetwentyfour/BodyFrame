@@ -22,8 +22,11 @@ class MessageController < ApplicationController
 
   def get_messages
     begin
-      if(params[:user_id].present?)
-        result = ActiveRecord::Base.connection.exec_query("select * from message where user_id = #{ActiveRecord::Base.connection.quote(params[:user_id])};")
+      if(params[:user_id].present? and params[:messager].present?)
+        user = ActiveRecord::Base.connection.quote(params[:user_id])
+        messager = ActiveRecord::Base.connection.quote(params[:messager])
+        command = "select * from message where user_id in (#{user},#{messager}) and message_from in (#{messager},#{user}) order by message_date;"
+        result = ActiveRecord::Base.connection.exec_query(command)
         ActiveRecord::Base.connection.close
         render json: JSON.pretty_generate(result.to_hash)
       else

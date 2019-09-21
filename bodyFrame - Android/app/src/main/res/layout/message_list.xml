@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/bubble_right"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="137dp">
+
+            <TextView
+                android:id="@+id/textView_message_right"
+                android:layout_width="250dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/chat_bubble_top_inactive"
+                android:paddingTop="30dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/text_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.885"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView_time_right"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:background="@drawable/chat_bubble_bottom_inactive"
+                android:paddingLeft="20dp"
+                android:textColor="@color/text_white"
+                app:layout_constraintEnd_toEndOf="@+id/textView_message_right"
+                app:layout_constraintStart_toStartOf="@+id/textView_message_right"
+                app:layout_constraintTop_toBottomOf="@+id/textView_message_right" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imageView_client_right"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/text_blue"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_message_right"
+                app:layout_constraintEnd_toEndOf="@+id/textView_message_right"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textView_message_right"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bubble_left"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="137dp">
+
+            <TextView
+                android:id="@+id/textView_message_left"
+                android:layout_width="250dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/chat_bubble_top_active"
+                android:paddingTop="30dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/text_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView_time_left"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/chat_bubble_bottom_active"
+                android:textColor="@color/text_white"
+                app:layout_constraintEnd_toEndOf="@+id/textView_message_left"
+                app:layout_constraintStart_toStartOf="@+id/textView_message_left"
+                app:layout_constraintTop_toBottomOf="@+id/textView_message_left" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imageView_client_left"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="@color/text_blue"
+                app:civ_border_width="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_message_left"
+                app:layout_constraintEnd_toEndOf="@+id/textView_message_left"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView_message_left"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

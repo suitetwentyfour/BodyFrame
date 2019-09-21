@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_app_name_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_first_half_capitalized"
+            android:fontFamily="@font/app_default"
+            android:textColor="@color/text_blue"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/textView_app_name_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/app_default"
+            android:text="@string/app_name_second_half_capitalized"
+            android:textColor="@color/text_white"
+            android:paddingTop="100dp"
+            android:paddingBottom="15dp"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_bank_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/bank_information"/>
+
+    <TextView
+        android:id="@+id/textView_cardholder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/cardholder_name"/>
+
+    <EditText
+        android:id="@+id/editText_cardholder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/card_number"/>
+
+    <EditText
+        android:id="@+id/editText_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:ems="10"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/textView_expiration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/expiration"/>
+
+    <EditText
+        android:id="@+id/editText_expiration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:ems="10"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/textView_cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/cvv"/>
+
+    <EditText
+        android:id="@+id/editText_cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:ems="10"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/button_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:background="@color/button_active"
+        android:text="@string/finish_button" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:background="@color/button_inactive"
+        android:text="@string/back_button" />
+
+    <TextView
+        android:id="@+id/textView_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/already_have_account" />
+</LinearLayout>

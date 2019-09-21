@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imageView_user"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/avatar"
+            app:civ_border_color="@color/text_blue"
+            app:civ_border_width="2dp" />
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="User Name"
+                android:textColor="@color/text_blue" />
+
+            <TextView
+                android:id="@+id/textView_personal_trainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal_trainer"
+                android:textColor="@color/text_gray" />
+
+            <TextView
+                android:id="@+id/textView_edit_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/edit_profile"
+                android:textColor="@color/text_white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton_messages"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/background"
+                android:scaleType="fitXY"
+                android:src="@drawable/chat" />
+
+            <ImageButton
+                android:id="@+id/imageButton_settings"
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/background"
+                android:scaleType="fitXY"
+                android:src="@drawable/settings" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_monday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/monday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_tuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/tuesday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_wednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/wednesday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_thursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/thursday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_friday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/friday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_saturday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/saturday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_sunday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/text_white"
+                    android:text="@string/sunday" />
+
+                <Button
+                    android:id="@+id/button_cal_1_7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="7" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/week_two"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_2_7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="7" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/week_three"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_3_7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="7" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/week_four"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:paddingBottom="15dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_4_7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="7" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/week_five"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_cal_5_7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textSize="15sp"
+                    android:background="@color/background"
+                    android:textColor="@color/text_white"
+                    android:text="7" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButton_expand"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/calandar_expand_icon"
+            android:backgroundTint="@color/button_active"
+            app:srcCompat="@drawable/downarrow" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_toggle_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_secondary_one"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="120dp"
+            android:background="@drawable/button_toggle_inactive_right"
+            android:text="@string/notifications"
+            android:textColor="@color/text_white" />
+
+        <Button
+            android:id="@+id/button_primary_one"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_toggle_active"
+            android:text="@string/clients"
+            android:textColor="@color/text_white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_toggle_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_primary_two"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_toggle_inactive_left"
+            android:text="@string/clients"
+            android:textColor="@color/text_white" />
+
+        <Button
+            android:id="@+id/button_secondary_two"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="160dp"
+            android:background="@drawable/button_toggle_active"
+            android:text="@string/notifications"
+            android:textColor="@color/text_white" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/button_invite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_List"
+                android:layout_width="match_parent"
+                android:paddingBottom="55dp"
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button_invite"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_rounded_inactive"
+            android:text="@string/invite"
+            android:textColor="@color/text_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

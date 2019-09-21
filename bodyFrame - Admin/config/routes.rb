@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   post '/Update_Card_Information', to: 'user#update_card_information'
   post '/Forgot_Password', to: 'user#forgot_password'
   post '/Get_Contact_List', to: 'user#get_contact_list'
+  post '/Comp_User', to: 'user#comp_user'
+  post '/Delete_User_Account', to: 'user#delete_user_account'
 
   # Dynamic error pages
   get "/404", to: "application#error_404"

@@ -42,7 +42,8 @@ CREATE TABLE user_profile
     sex character (1) NOT NULL,
     goal character varying(50) NOT NULL,
     weight integer NOT NULL,
-    height integer NOT NULL
+    height integer NOT NULL,
+    profile_picture text
 );
 
 CREATE TABLE user_card_information
@@ -62,18 +63,22 @@ CREATE TABLE payment_history
   payer character varying(50) NOT NULL,
   payment_id serial,
   memo text,
-  payment_date time NOT NULL default now()
+  payment_date timestamp NOT NULL default now()
 );
 
 CREATE TABLE activities
 (
+  activity_name character varying(50),
   activity_type character varying(10),
-  due_date date NOT NULL,
+  activity_description character varying(50),
+  due_date date NOT NULL default now(),
   media_link text,
   assigner character varying(50) NOT NULL,
   assignee character varying(50) NOT NULL,
   memo text,
   activity_id serial,
+  activity_time integer,
+  calories integer,
   completed boolean NOT NULL Default 'FALSE'
 );
 
@@ -81,7 +86,7 @@ CREATE TABLE message
 (
   user_id character varying(50) NOT NULL,
   message_from character varying(50) NOT NUll,
-  message_date date NOT NULL default now(),
+  message_date timestamp NOT NULL default now(),
   message text NOT NULL,
   message_id serial,
   read boolean NOT NULL Default 'FALSE'
@@ -90,6 +95,7 @@ CREATE TABLE message
 CREATE TABLE notification
 (
   user_id character varying(50) NOT NULL,
+  notificaton_date timestamp NOT NULL default now(),
   notification text NOT NUll,
   notification_id serial,
   read boolean NOT NULL Default 'FALSE'
@@ -101,7 +107,7 @@ CREATE TABLE support_ticket
   ticket_id serial,
   ticket_information text NOT NULL,
   status character varying(50) NOT NULL default 'OPEN',
-  ticket_date time NOT NULL default now()
+  ticket_date timestamp NOT NULL default now()
 );
 
 -- Insert the admin random nonsense password needs to be reset by the admin

@@ -1,14 +1,20 @@
 class ActivityController < ApplicationController
   def assign_activity
     begin
-      if(params[:assigner].present? and params[:assignee].present? and params[:activity_type].present? and params[:due_date].present? and params[:memo].present?)
+      if(params[:assigner].present? and params[:assignee].present? and params[:activity_type].present? and
+        params[:activity_name].present? and params[:activity_description].present? and params[:due_date].present?)
+        activity_name = ActiveRecord::Base.connection.quote(params[:activity_name])
+        activity_description = ActiveRecord::Base.connection.quote(params[:activity_description])
         assigner = ActiveRecord::Base.connection.quote(params[:assigner])
         assignee = ActiveRecord::Base.connection.quote(params[:assignee])
         activity_type = ActiveRecord::Base.connection.quote(params[:activity_type])
-        due_date = ActiveRecord::Base.connection.quote(params[:due_date])
         media_link = ActiveRecord::Base.connection.quote(params[:media_link])
         memo = ActiveRecord::Base.connection.quote(params[:memo])
-        sqlCommand = "insert into activities(activity_type, due_date, media_link, assigner, assignee, memo) values(#{activity_type}, #{due_date}, #{media_link}, #{assigner}, #{assignee}, #{memo});"
+        activity_time = ActiveRecord::Base.connection.quote(params[:activity_time])
+        calories = ActiveRecord::Base.connection.quote(params[:calories])
+        due_date = ActiveRecord::Base.connection.quote(params[:due_date])
+        sqlCommand = "insert into activities(activity_name, activity_type, activity_description, media_link, assigner, assignee, memo, activity_time, calories, due_date) " +
+                      "values(#{activity_name}, #{activity_type}, #{activity_description}, #{media_link}, #{assigner}, #{assignee}, #{memo}, #{activity_time}, #{calories}, #{due_date});"
         ActiveRecord::Base.connection.exec_query(sqlCommand)
         ActiveRecord::Base.connection.close
         response = {"Reponse" => "200","Message" => "Activity successfully added."}

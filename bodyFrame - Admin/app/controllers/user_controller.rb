@@ -2,10 +2,14 @@ class UserController < ApplicationController
   def login
     begin
       if(params[:email].present? and params[:password].present?)
-        email = ActiveRecord::Base.connection.quote(params[:email].downcase)
+        email = ActiveRecord::Base.connection.quote(params[:email].strip.downcase)
         password = ActiveRecord::Base.connection.quote(params[:password])
         result = ActiveRecord::Base.connection.exec_query("select user_id, user_type, email, assigned_to, member_since, paid_until from users where email = #{email} and password = #{password};")
         ActiveRecord::Base.connection.close
+        if(!result.blank?)
+          ActiveRecord::Base.connection.exec_query("update users set last_sign_in = now();")
+          ActiveRecord::Base.connection.close
+        end
         render json: JSON.pretty_generate(result.blank? ? {"Reponse" => "400","Message" => "Incorrect username/password combo"}.to_hash : result.to_hash)
       else
         response = {"Reponse" => "412","Message" => "Incorrect number of parameters"}
@@ -24,7 +28,7 @@ class UserController < ApplicationController
         user_id = ActiveRecord::Base.connection.quote("0X" + ActiveRecord::Base.connection.exec_query("select count(*) from users;").first['count'].to_s.rjust(6, "0"))
         ActiveRecord::Base.connection.close
 
-        email = ActiveRecord::Base.connection.quote(params[:email].downcase)
+        email = ActiveRecord::Base.connection.quote(params[:email].strip.downcase)
         password = ActiveRecord::Base.connection.quote(params[:password])
         user_type = ActiveRecord::Base.connection.quote(params[:user_type])
         sqlCommand = "insert into users(user_id, password, user_type, email) values(#{user_id}, #{password}, #{user_type}, #{email});"
@@ -69,7 +73,7 @@ class UserController < ApplicationController
       if(params[:user_id].present?)
         user_id = ActiveRecord::Base.connection.quote(params[:user_id])
         if(params[:email].present?)
-          email = ActiveRecord::Base.connection.quote(params[:email].downcase)
+          email = ActiveRecord::Base.connection.quote(params[:email].strip.downcase)
           ActiveRecord::Base.connection.exec_query("update users set email = #{email} where user_id = #{user_id};")
           ActiveRecord::Base.connection.close
         end
@@ -238,14 +242,14 @@ class UserController < ApplicationController
   def forgot_password
     begin
       if(params[:email].present?)
-        email_exists = ActiveRecord::Base.connection.exec_query("select count(*) from users where email = #{ActiveRecord::Base.connection.quote(params[:email].downcase)};").first['count'].to_i == 1 ? true : false
+        email_exists = ActiveRecord::Base.connection.exec_query("select count(*) from users where email = #{ActiveRecord::Base.connection.quote(params[:email].strip.downcase)};").first['count'].to_i == 1 ? true : false
         ActiveRecord::Base.connection.close
 
         if(email_exists)
           result = ActiveRecord::Base.connection.exec_query("select first_name, last_name from users inner join user_profile on users.user_id = user_profile.user_id where email = #{ActiveRecord::Base.connection.quote(params[:email].downcase)};")
           first_name = result.first['first_name']
           last_name = result.first['last_name']
-          email = params[:email]
+          email = params[:email].strip.downcase
           password  = SecureRandom.hex(5).upcase
           Mailer.reset_password_email(first_name, last_name, email, password).deliver
           ActiveRecord::Base.connection.close
@@ -275,6 +279,43 @@ class UserController < ApplicationController
         user_id = ActiveRecord::Base.connection.quote(params[:user_id])
         sql_command = "select users.user_id, first_name, last_name from users inner join user_profile on users.user_id = user_profile.user_id where assigned_to = #{user_id};"
         result = ActiveRecord::Base.connection.exec_query(sql_command)
+        ActiveRecord::Base.connection.close
+        render json: JSON.pretty_generate(result.to_hash)
+      else
+        response = {"Reponse" => "412","Message" => "Incorrect number of parameters"}
+        render json: JSON.pretty_generate(response.to_hash)
+      end
+    rescue StandardError => e
+      response = {"Reponse" => "500","Message" => "Page error, " + e.message}
+      render json: JSON.pretty_generate(response.to_hash)
+    end
+  end
+
+  def comp_user
+    begin
+      if(params[:user_id].present? and params[:comp_time].present?)
+        user_id = ActiveRecord::Base.connection.quote(params[:user_id])
+        comp_time = ActiveRecord::Base.connection.quote(params[:comp_time])
+        sql_command = "update users set paid_until = #{comp_time} where user_id = #{user_id};"
+        result = ActiveRecord::Base.connection.exec_query(sql_command)
+        ActiveRecord::Base.connection.close
+        render json: JSON.pretty_generate(result.to_hash)
+      else
+        response = {"Reponse" => "412","Message" => "Incorrect number of parameters"}
+        render json: JSON.pretty_generate(response.to_hash)
+      end
+    rescue StandardError => e
+      response = {"Reponse" => "500","Message" => "Page error, " + e.message}
+      render json: JSON.pretty_generate(response.to_hash)
+    end
+  end
+
+  def delete_user_account
+    begin
+      if(params[:user_id].present?)
+        user_id = ActiveRecord::Base.connection.quote(params[:user_id])
+        sql_command = "update users set email = (email || '-deleted ' || CURRENT_DATE) where user_id = #{user_id};"
+        ActiveRecord::Base.connection.exec_query(sql_command)
         ActiveRecord::Base.connection.close
         render json: JSON.pretty_generate(result.to_hash)
       else

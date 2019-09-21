@@ -10,12 +10,14 @@ class PaymentController < ApplicationController
         charge = Stripe::Charge.create(
           :customer    => customer.id,
           :amount      => params[:amount].to_i,
-          :description => "Payment of " + params[:amount].to_s + " from the trainer",
+          :description => "Payment of #{params[:amount].to_s} from the trainer for #{payment_period} month(s)",
           :currency    => 'usd'
         )
         if(!charge.nil?)
           sqlCommand = "insert into payment_history(payment_amount, payee, payer, memo) values(#{params[:amount].to_s},'0X000000',#{params[:payer]},#{params[:memo]});"
           ActiveRecord::Base.connection.exec_query(sqlCommand)
+          ActiveRecord::Base.connection.close
+          ActiveRecord::Base.connection.exec_query("update users set paid_until = #{payment_period} where user_id = #{params[:payer]}")
           ActiveRecord::Base.connection.close
           response = {"Reponse" => "200","Message" => "Payment to Body Frame was successfull."}
           render json: JSON.pretty_generate(response.to_hash)
@@ -36,8 +38,8 @@ class PaymentController < ApplicationController
     end
   end
 
-  # Need to add taking 10% off the top and putting the rest in a trainer account
   def pay_trainer
+    body_frame_fee = 0.1 # 10% off the top
     begin
       if(params[:email].present? and params[:stripeToken].present? and params[:amount].present? and params[:payee].present?and params[:payer].present? and params[:memo].present?)
         customer = Stripe::Customer.create(
@@ -51,6 +53,23 @@ class PaymentController < ApplicationController
           :description => "Payment of " + params[:amount].to_s + " from the trainer",
           :currency    => 'usd'
         )
+
+        # Create a Transfer to a connected account (later):
+        transfer = Stripe::Transfer.create({
+          amount: 7000,
+          currency: "usd",
+          destination: "{{CONNECTED_STRIPE_ACCOUNT_ID}}",
+          transfer_group: "{ORDER10}",
+        })
+
+        # Create a second Transfer to another connected account (later):
+        transfer = Stripe::Transfer.create({
+          amount: 2000,
+          currency: "usd",
+          destination: "{OTHER_CONNECTED_STRIPE_ACCOUNT_ID}",
+          transfer_group: "{ORDER10}",
+        })
+
         if(!charge.nil?)
           sqlCommand = "insert into payment_history(payment_amount, payee, payer, memo) values(#{params[:amount].to_s},#{params[:payee]},#{params[:payer]},#{params[:memo]});"
           ActiveRecord::Base.connection.exec_query(sqlCommand)

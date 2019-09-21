@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_app_name_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_first_half_capitalized"
+            android:fontFamily="@font/app_default"
+            android:textColor="@color/text_blue"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/textView_app_name_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/app_default"
+            android:text="@string/app_name_second_half_capitalized"
+            android:textColor="@color/text_white"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView_profile"
+        android:background="@drawable/plus_icon"
+        android:src="@drawable/plus_circle"
+        android:alpha="0.60"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/imageView_user"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:civ_border_color="@color/text_blue"
+        android:visibility="gone"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/textView_Enter_Credentials"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:paddingBottom="15dp"
+        android:text="@string/personal_details"/>
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/edit_text_rounded"
+        android:drawableLeft="@drawable/avatar_icon"
+        android:drawablePadding="10sp"
+        android:alpha="0.60"
+        android:hint="@string/full_name"
+        android:textColor="@color/text_white"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/text_white" />
+
+    <EditText
+        android:id="@+id/editText_birthday"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/edit_text_rounded"
+        android:drawableLeft="@drawable/calandar_icon"
+        android:drawablePadding="10sp"
+        android:alpha="0.60"
+        android:textColor="@color/text_white"
+        android:hint="@string/birthday"
+        android:textColorHint="@color/text_white"
+        android:inputType="datetime"/>
+
+    <EditText
+        android:id="@+id/editText_address"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/edit_text_rounded"
+        android:drawableLeft="@drawable/map_icon"
+        android:drawablePadding="10sp"
+        android:alpha="0.60"
+        android:textColor="@color/text_white"
+        android:hint="@string/address"
+        android:textColorHint="@color/text_white"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/editText_phone_number"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/edit_text_rounded"
+        android:drawableLeft="@drawable/call_icon"
+        android:drawablePadding="10sp"
+        android:alpha="0.60"
+        android:textColor="@color/text_white"
+        android:hint="@string/phone_number"
+        android:textColorHint="@color/text_white"
+        android:inputType="phone"/>
+
+    <Button
+        android:id="@+id/button_continue"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_rounded_active"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/text_white"
+        android:text="@string/continue_button" />
+
+    <Button
+        android:id="@+id/button_trainer_invite"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_rounded_inactive"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/text_white"
+        android:text="@string/trainer_invite_button" />
+
+    <TextView
+        android:id="@+id/textView_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_white"
+        android:text="@string/already_have_account" />
+</LinearLayout>
